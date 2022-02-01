@@ -1,9 +1,9 @@
 # CADT React Test
 
-Create a project through **Create React App** and add json-server to it.
-Once installed json-server add the file **db.json** from the test zip to the root of the created project.
-This will work as a data base. Back end should be configured to start at port 5000.
-Create a script in package.json to run both front and back with **npm run rundevel**.
+- Create a project through **Create React App** and add json-server to it.
+- Once installed json-server add the file **db.json** from the test zip to the root of the created project.
+- This will work as a data base. Back end should be configured to start at port 5000.
+- Create a script in package.json to run both front and back with **npm run rundevel**.
 
 [json-server](https://www.npmjs.com/package/json-server)
 
