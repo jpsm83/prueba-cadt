@@ -1,0 +1,61 @@
+.viewListContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    align-content: space-between;
+    width: 80%;
+    border-spacing: 0px!important;
+
+}
+
+thead {
+}
+
+thead > tr {
+}
+
+th {
+    border-bottom: 2px solid rgb(230, 230, 230);
+    border-collapse: collapse;
+    padding-bottom: 10px;
+}
+
+thead tr th:nth-child(1){
+    text-align: start;
+    padding-left: 18px;
+  }
+
+
+tbody {
+    align-content: space-between;
+    border-spacing: 0px!important;
+}
+
+tbody > tr {
+}
+
+td {
+    border-bottom: 2px solid rgb(230, 230, 230);
+    border-collapse: collapse;
+    padding-bottom: 18px;
+    padding-top: 16px;
+    text-align: center;
+
+}
+
+tbody tr td:nth-child(1){
+    text-align: start;
+    padding-left: 18px;
+  }
+
+.evenRow {
+    background-color: rgb(251, 251, 251);
+}
+
+.oddRow {
+    background-color: white;
+}
