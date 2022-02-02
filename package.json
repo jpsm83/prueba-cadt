@@ -13,7 +13,7 @@
     "react-table": "^7.7.0"
   },
   "scripts": {
-    "rundevel": "concurrently \"json-server -p 5000 -w data/db.json\" \"react-scripts start\"",
+    "rundevel": "concurrently \"npx json-server -p 5000 -w data/db.json\" \"react-scripts start\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

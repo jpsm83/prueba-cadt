@@ -1,15 +1,9 @@
-// import { useNavigate } from "react-router-dom";
-
 export default function ViewList(props) {
-  // const navigate = useNavigate();
 
-  // const editItem = (id) => {
-  //   navigate(`/edit-${props.type}/${id}`);
-  // };
-
-  // those are props - methos from the react-table package
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     props.tableInstance;
+
+const isEven = (idx) => idx % 2 === 0;
 
   return (
     <div>
@@ -18,21 +12,22 @@ export default function ViewList(props) {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                {column.render("Header")}
+                {column.isSorted ? (column.isSortedDesc ? "up" : "down") : ""}
+                </th>
               ))}
             </tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
+          {rows.map((row, idx) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                  );
-                })}
+              <tr {...row.getRowProps()} className={isEven(idx) ? "" : ""}>
+                {row.cells.map((cell) => (
+                  <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                ))}
               </tr>
             );
           })}

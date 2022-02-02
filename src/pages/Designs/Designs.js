@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { useTable } from "react-table";
+import { useTable, useSortBy } from "react-table";
 import { COLUMNS } from "../../components/Columns/DesignsColumns";
 // import "./Designs.scss";
 import Navbar from "../../components/Navbar/Navbar";
@@ -31,10 +31,16 @@ export default function Designs() {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => designs, [designs]);
 
+  // const columns = useMemo(() => designs[0] ? Object.keys(designs[0]).map((key) => { return { Header: key, accessor: key}}) : [], [designs]);
+
   const tableInstance = useTable({
     columns,
     data,
-  });
+  },
+  useSortBy
+  );
+
+console.log(designs)
 
   return (
     <div>
