@@ -6,8 +6,8 @@ export default class DesignsService {
   constructor() {
     this.instance = axios.create({
       // baseURL should be hide in a file call ".env"
-      // in this case our baseURL is "http://localhost:5000"
       // baseURL: `${process.env.REACT_APP_API_URL}/designs`,
+      
       baseURL: "http://localhost:5000/designs",
     });
   }

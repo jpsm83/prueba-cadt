@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-// import "./Home.scss";
+import "./Home.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function Home() {
   return (
-    <div>
-      <Link to="/designs">Designs</Link>
-      <Link to="/setouts">Setouts</Link>
+    <div className="homeContainer">
+      <Navbar />
     </div>
   );
 }
