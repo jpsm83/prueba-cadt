@@ -14,10 +14,10 @@ export const COLUMNS = [
     accessor: "wales",
   },
   {
-    Header: "Last Update",
+    Header: "Last Updated",
     accessor: "updated",
     Cell: ({ value }) => {
-      return moment(value).format("DD/MM/YY");
+      return moment(value).format("D/MM/YY");
     },
   },
   {

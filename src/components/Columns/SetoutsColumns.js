@@ -22,10 +22,10 @@ export const COLUMNS = [
     accessor: "courses",
   },
   {
-    id: "updated",
     Header: "Last Updated",
-    accessor: (itemDate) => {
-      return moment(itemDate.updated).local().format("DD/MM/YY");
+    accessor: "updated",
+    Cell: ({ value }) => {
+      return moment(value).format("D/MM/YY");
     },
   },
 ];

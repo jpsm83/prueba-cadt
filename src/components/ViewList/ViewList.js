@@ -1,15 +1,25 @@
 import "./ViewList.css";
-import { ChevronDoubleDownIcon } from '@heroicons/react/solid';
-import { ChevronDoubleUpIcon } from '@heroicons/react/solid'
+import { ChevronDoubleDownIcon } from "@heroicons/react/solid";
+import { ChevronDoubleUpIcon } from "@heroicons/react/solid";
 
 export default function ViewList(props) {
+  const {
+    getTableProps,
+    pageOptions,
+    state,
+    canNextPage,
+    canPreviousPage,
+    nextPage,
+    previousPage,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    prepareRow,
+  } = props.tableInstance;
 
-  const { getTableProps, pageOptions, state, canNextPage, canPreviousPage, nextPage, previousPage, getTableBodyProps, headerGroups, page, prepareRow } =
-    props.tableInstance;
+  const { pageIndex, pageSize } = state;
 
-    const { pageIndex, pageSize } = state;
-
-const isEven = (idx) => idx % 2 === 0;
+  const isEven = (idx) => idx % 2 === 0;
 
   return (
     <div className="viewListContainer">
@@ -19,8 +29,20 @@ const isEven = (idx) => idx % 2 === 0;
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                {column.render("Header")}
-                {column.isSorted ? (column.isSortedDesc ? <ChevronDoubleUpIcon style={{color: "green", height: 15}} /> : <ChevronDoubleDownIcon style={{color: "red", height: 15}} />) : ""}
+                  {column.render("Header")}
+                  {column.isSorted ? (
+                    column.isSortedDesc ? (
+                      <ChevronDoubleUpIcon
+                        style={{ color: "green", height: 15 }}
+                      />
+                    ) : (
+                      <ChevronDoubleDownIcon
+                        style={{ color: "red", height: 15 }}
+                      />
+                    )
+                  ) : (
+                    ""
+                  )}
                 </th>
               ))}
             </tr>
@@ -30,7 +52,10 @@ const isEven = (idx) => idx % 2 === 0;
           {page.map((row, idx) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()} className={isEven(idx) ? "evenRow" : "oddRow"}>
+              <tr
+                {...row.getRowProps()}
+                className={isEven(idx) ? "evenRow" : "oddRow"}
+              >
                 {row.cells.map((cell) => (
                   <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                 ))}
@@ -40,12 +65,19 @@ const isEven = (idx) => idx % 2 === 0;
         </tbody>
       </table>
       <div>
-      <span>Page{" "}
-      <strong>{pageIndex +1} of {pageOptions.length}</strong>{" "}
-      </span>
-      {pageSize}
-        <button onClick={() => previousPage()} disable={!canPreviousPage}>Previous</button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
+        <span>
+          Page{" "}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>{" "}
+        </span>
+        {pageSize}
+        <button onClick={() => previousPage()} disable={!canPreviousPage}>
+          Previous
+        </button>
+        <button onClick={() => nextPage()} disabled={!canNextPage}>
+          Next
+        </button>
       </div>
     </div>
   );

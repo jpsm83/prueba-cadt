@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
-import { useTable } from "react-table";
+import { useTable, useSortBy, usePagination } from "react-table";
 import { COLUMNS } from "../../components/Columns/SetoutsColumns";
-// import "./Setouts.scss";
+import "./Setouts.css";
 import Navbar from "../../components/Navbar/Navbar";
 import ViewList from "../../components/ViewList/ViewList";
 import SetoutsService from "../../services/setouts.service";
@@ -31,19 +31,29 @@ export default function Setouts() {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => setouts, [setouts]);
 
-  const tableInstance = useTable({
-    columns,
-    data,
-  });
+  // const columns = useMemo(() => setouts[0] ? Object.keys(setouts[0]).map((key) => { return { Header: key, accessor: key}}) : [], [setouts]);
+
+  const tableInstance = useTable(
+    {
+      columns,
+      data,
+      initialState: { pageSize: 5 },
+    },
+    useSortBy,
+    usePagination
+  );
 
   return (
-    <div>
-      <Navbar />
-      <ViewList
-        setouts={{ ...setouts }}
-        tableInstance={{ ...tableInstance }}
-        type="setouts"
-      />
+    <div className="designContainer">
+      <div className="navContainer">
+        <Navbar />
+      </div>
+      <div className="listContainer">
+        <ViewList
+          setouts={{ ...setouts }}
+          tableInstance={{ ...tableInstance }}
+        />
+      </div>
     </div>
   );
 }

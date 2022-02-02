@@ -37,13 +37,11 @@ export default function Designs() {
     {
       columns,
       data,
-      initialState: { pageSize: 5 }
+      initialState: { pageSize: 5 },
     },
     useSortBy,
     usePagination
   );
-
-  console.log(designs);
 
   return (
     <div className="designContainer">
@@ -54,7 +52,6 @@ export default function Designs() {
         <ViewList
           designs={{ ...designs }}
           tableInstance={{ ...tableInstance }}
-          type="designs"
         />
       </div>
     </div>
