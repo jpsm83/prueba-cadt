@@ -7,7 +7,7 @@ export default function ViewList(props) {
   const { getTableProps, pageOptions, state, canNextPage, canPreviousPage, nextPage, previousPage, getTableBodyProps, headerGroups, page, prepareRow } =
     props.tableInstance;
 
-    const { pageIndex } = state;
+    const { pageIndex, pageSize } = state;
 
 const isEven = (idx) => idx % 2 === 0;
 
@@ -43,6 +43,7 @@ const isEven = (idx) => idx % 2 === 0;
       <span>Page{" "}
       <strong>{pageIndex +1} of {pageOptions.length}</strong>{" "}
       </span>
+      {pageSize}
         <button onClick={() => previousPage()} disable={!canPreviousPage}>Previous</button>
         <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
       </div>

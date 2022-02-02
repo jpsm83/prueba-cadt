@@ -37,6 +37,7 @@ export default function Designs() {
     {
       columns,
       data,
+      initialState: { pageSize: 5 }
     },
     useSortBy,
     usePagination
