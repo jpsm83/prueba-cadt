@@ -1,0 +1,14 @@
+.designContainer {
+    display: flex;
+}
+
+.navContainer {
+    width: 20vw;
+}
+
+.listContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+}

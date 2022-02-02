@@ -1,0 +1,22 @@
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: rgb(108, 177, 162);
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+}

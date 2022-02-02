@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
-import { useTable, useSortBy } from "react-table";
+import { useTable, useSortBy, usePagination } from "react-table";
 import { COLUMNS } from "../../components/Columns/DesignsColumns";
-// import "./Designs.scss";
+import "./Designs.css";
 import Navbar from "../../components/Navbar/Navbar";
 import ViewList from "../../components/ViewList/ViewList";
 import DesignsService from "../../services/designs.service";
@@ -33,23 +33,29 @@ export default function Designs() {
 
   // const columns = useMemo(() => designs[0] ? Object.keys(designs[0]).map((key) => { return { Header: key, accessor: key}}) : [], [designs]);
 
-  const tableInstance = useTable({
-    columns,
-    data,
-  },
-  useSortBy
+  const tableInstance = useTable(
+    {
+      columns,
+      data,
+    },
+    useSortBy,
+    usePagination
   );
 
-console.log(designs)
+  console.log(designs);
 
   return (
-    <div>
-      <Navbar />
-      <ViewList
-        designs={{ ...designs }}
-        tableInstance={{ ...tableInstance }}
-        type="designs"
-      />
+    <div className="designContainer">
+      <div className="navContainer">
+        <Navbar />
+      </div>
+      <div className="listContainer">
+        <ViewList
+          designs={{ ...designs }}
+          tableInstance={{ ...tableInstance }}
+          type="designs"
+        />
+      </div>
     </div>
   );
 }

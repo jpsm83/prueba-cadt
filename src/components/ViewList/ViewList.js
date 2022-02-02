@@ -4,8 +4,10 @@ import { ChevronDoubleUpIcon } from '@heroicons/react/solid'
 
 export default function ViewList(props) {
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+  const { getTableProps, pageOptions, state, canNextPage, canPreviousPage, nextPage, previousPage, getTableBodyProps, headerGroups, page, prepareRow } =
     props.tableInstance;
+
+    const { pageIndex } = state;
 
 const isEven = (idx) => idx % 2 === 0;
 
@@ -25,7 +27,7 @@ const isEven = (idx) => idx % 2 === 0;
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, idx) => {
+          {page.map((row, idx) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()} className={isEven(idx) ? "evenRow" : "oddRow"}>
@@ -37,6 +39,13 @@ const isEven = (idx) => idx % 2 === 0;
           })}
         </tbody>
       </table>
+      <div>
+      <span>Page{" "}
+      <strong>{pageIndex +1} of {pageOptions.length}</strong>{" "}
+      </span>
+        <button onClick={() => previousPage()} disable={!canPreviousPage}>Previous</button>
+        <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
+      </div>
     </div>
   );
 }
