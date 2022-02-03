@@ -12,19 +12,20 @@ export default function Designs() {
   const designsService = new DesignsService();
 
   useEffect(() => {
-    const fetchDesigns = async () => {
-      try {
-        const response = await designsService.get();
-        // using axios we dont need response.json because it is already parse
-        // response.data is the right optoin
-        const listDesigns = await response.data;
-        setDesigns(listDesigns);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchDesigns();
+    fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await designsService.get();
+      // using axios we dont need response.json because it is already parse
+      // response.data is the right optoin
+      const listDesigns = await response.data;
+      setDesigns(listDesigns);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // useMemo avoid the data to be recreated every time component is call
   // it uses the memory of whatever is render and use it again improving app performance
@@ -52,6 +53,8 @@ export default function Designs() {
         <ViewList
           designs={{ ...designs }}
           tableInstance={{ ...tableInstance }}
+          typeOpt="Design"
+          fetchData={() => fetchData()}
         />
       </div>
     </div>
