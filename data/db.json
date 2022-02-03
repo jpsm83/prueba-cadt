@@ -3,36 +3,36 @@
     {
       "courses": 111,
       "id": 20,
-      "name": "20th Design 111111222222",
+      "name": "20th Design",
       "status": "in-progress",
-      "updated": "2021-04-12 08:25:41.567611",
+      "updated": 1643886392672,
       "user_id_last_update": 1,
       "wales": 333
     },
     {
       "courses": 400,
       "id": 19,
-      "name": "19th Designa33333",
+      "name": "19th Design",
       "status": "in-progress",
-      "updated": "2021-04-11 08:25:41.567611",
+      "updated": 1643886420486,
       "user_id_last_update": 2,
       "wales": 100
     },
     {
       "courses": 350,
       "id": 18,
-      "name": "18th Designasdfads",
+      "name": "18th Design",
       "status": "in-progress",
-      "updated": "2021-04-10 08:25:41.567611",
+      "updated": 1643886404982,
       "user_id_last_update": 2,
       "wales": 250
     },
     {
       "courses": "1700",
       "id": 17,
-      "name": "17th Designasdfasfds",
+      "name": "17th Design",
       "status": "in-progress",
-      "updated": "2021-04-09 08:25:41.567611",
+      "updated": 1643886411791,
       "user_id_last_update": 1,
       "wales": 300
     },
@@ -183,8 +183,8 @@
   "setouts": [
     {
       "id": 1,
-      "updated": 1643883327847,
-      "name": "1st Setoutaa",
+      "updated": 1643886277610,
+      "name": "1st Setout",
       "machine_name": "RSJ_4_1",
       "machine_width": 130,
       "courses": 200
@@ -199,7 +199,7 @@
     },
     {
       "id": 3,
-      "updated": "2021-03-26 08:44:31.810221",
+      "updated": 1643886176257,
       "name": "3rd Setout",
       "machine_name": "RSJ_5_1",
       "machine_width": 200,

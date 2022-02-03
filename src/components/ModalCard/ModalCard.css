@@ -1,4 +1,60 @@
-
-.modelTitle {
+.modalContainer {
     font-family: Arial, Helvetica, sans-serif;
+    padding: 80px;
+}
+
+.modalContainer h2{
+    text-align: center;
+}
+.formContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    border: 2px solid rgb(221, 221, 221);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(234, 243, 241);
+}
+
+.inputType {
+    display: flex;
+    margin: 8px 0;
+}
+
+.inputType label {
+    font-weight: bold;
+}
+.inputType input {
+    border-radius: 5px;
+    margin-left: 8px;
+    outline: none;
+    border: none;
+    display: -webkit-flex;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.buttonsContainer button {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    width: 140px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: 2px solid rgb(221, 221, 221);
+    background-color: rgb(234, 243, 241);
+
+}
+
+.buttonsContainer button:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+    border: 2px solid rgb(105, 105, 105);
+    background-color: rgb(187, 207, 203);
 }

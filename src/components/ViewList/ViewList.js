@@ -17,7 +17,6 @@ export default function ViewList(props) {
 
   const openModal = (selectedRow) => {
     setData(selectedRow);
-    console.log(selectedRow);
     setModalOpen(true);
   };
 
@@ -30,7 +29,7 @@ export default function ViewList(props) {
     setData({
       ...data,
       [name]: value,
-      updated: Date.now()
+      updated: Date.now(),
     });
   };
 
@@ -38,11 +37,10 @@ export default function ViewList(props) {
     e.preventDefault();
     const id = data.id;
     const uploadData = data;
-    if (typeOpt === "Desing") {
+    if (typeOpt === "Design") {
       designsService
         .updateOne(id, uploadData)
         .then(() => {
-          console.log("updated");
           fetchData();
           closeModal();
         })
@@ -52,7 +50,6 @@ export default function ViewList(props) {
         setoutsService
           .updateOne(id, uploadData)
           .then(() => {
-            console.log("updated");
             fetchData();
             closeModal();
           })

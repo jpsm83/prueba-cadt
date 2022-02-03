@@ -1,4 +1,5 @@
 import React from "react";
+import "./ModalCard.css";
 
 export default function ModelCard(props) {
   const {
@@ -15,61 +16,82 @@ export default function ModelCard(props) {
   } = props;
 
   return (
-    <div>
-      <h2 className="modelTitle">Edit {typeOpt}</h2>
-      <button onClick={closeModal}>close</button>
+    <div className="modalContainer">
+      <h2>Edit {typeOpt}</h2>
       <form onSubmit={(e) => onSubmit(e)}>
-        <label htmlFor="name">Name: </label>
-        <input
-          type="text"
-          name="name"
-          className=""
-          value={name}
-          onChange={(e) => onChange(e)}
-        />
-        <input
-          type="number"
-          name="courses"
-          className=""
-          value={courses}
-          onChange={(e) => onChange(e)}
-        />
+        <div className="formContainer">
+        <div className="inputType">
+          <label htmlFor="name">Name: </label>
+          <input
+            type="text"
+            name="name"
+            className=""
+            value={name}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
+        <div className="inputType">
+          <label htmlFor="name">Courses: </label>
+          <input
+            type="number"
+            name="courses"
+            className=""
+            value={courses}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
         {typeOpt === "Design" ? (
           <>
-            <input
-              type="number"
-              name="wales"
-              className=""
-              value={wales}
-              onChange={(e) => onChange(e)}
-            />
-            <input
-              type="text"
-              name="by"
-              className=""
-              value={user_id_last_update}
-              onChange={(e) => onChange(e)}
-            />
+            <div className="inputType">
+              <label htmlFor="name">Wales: </label>
+              <input
+                type="number"
+                name="wales"
+                className=""
+                value={wales}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className="inputType">
+              <label htmlFor="name">By: </label>
+              <input
+                type="text"
+                name="by"
+                className=""
+                value={user_id_last_update}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
           </>
         ) : (
           <>
-            <input
-              type="text"
-              name="machine_name"
-              className=""
-              value={machine_name}
-              onChange={(e) => onChange(e)}
-            />
-            <input
-              type="number"
-              name="machine_width"
-              className=""
-              value={machine_width}
-              onChange={(e) => onChange(e)}
-            />
+            <div className="inputType">
+              <label htmlFor="name">Machine Name: </label>
+              <input
+                type="text"
+                name="machine_name"
+                className=""
+                value={machine_name}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className="inputType">
+              <label htmlFor="name">Machine Width: </label>
+              <input
+                type="number"
+                name="machine_width"
+                className=""
+                value={machine_width}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
           </>
         )}
-        <button type="submit">Update</button>
+        </div>
+        <div className="buttonsContainer">
+          <button type="submit">Update</button>
+          <button onClick={closeModal}>Cancel</button>
+        </div>
       </form>
     </div>
   );
