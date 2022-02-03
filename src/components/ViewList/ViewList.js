@@ -5,7 +5,7 @@ import { ChevronDoubleUpIcon } from "@heroicons/react/solid";
 import { useState } from "react";
 import DesignsService from "../../services/designs.service";
 import SetoutsService from "../../services/setouts.service";
-import { useNavigationType } from "react-router-dom";
+import ModalCard from "../ModalCard/ModalCard";
 Modal.setAppElement("#root");
 
 export default function ViewList(props) {
@@ -30,6 +30,7 @@ export default function ViewList(props) {
     setData({
       ...data,
       [name]: value,
+      updated: Date.now()
     });
   };
 
@@ -169,52 +170,14 @@ export default function ViewList(props) {
           {">>"}
         </button>{" "}
       </div>
-      <Modal
-        isOpen={modalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Example Modal"
-      >
-        <h2>Edit {typeOpt}</h2>
-        <button onClick={closeModal}>close</button>
-        <p>{data.courses}</p>
-        <form onSubmit={(event) => onSubmit(event)}>
-          <input
-            type="text"
-            name="name"
-            className=""
-            value={data.name}
-            onChange={(e) => onChange(e)}
-          />
-          <input
-            type="number"
-            name="courses"
-            className=""
-            value={data.courses}
-            onChange={(e) => onChange(e)}
-          />
-          <input
-            type="number"
-            name="wales"
-            className=""
-            value={data.wales}
-            onChange={(e) => onChange(e)}
-          />
-          <input
-            type="date"
-            name="updated"
-            className=""
-            value={data.updated}
-            onChange={(e) => onChange(e)}
-          />
-          <input
-            type="text"
-            name="by"
-            className=""
-            value={data.user_id_last_update}
-            onChange={(e) => onChange(e)}
-          />
-          <button type="submit">Update</button>
-        </form>
+      <Modal isOpen={modalOpen} onRequestClose={closeModal}>
+        <ModalCard
+          {...data}
+          closeModal={() => closeModal()}
+          typeOpt={typeOpt}
+          onSubmit={(e) => onSubmit(e)}
+          onChange={(e) => onChange(e)}
+        />
       </Modal>
     </div>
   );
